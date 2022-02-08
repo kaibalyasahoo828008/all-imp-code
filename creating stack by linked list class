@@ -1,0 +1,98 @@
+
+
+
+//
+//  main.cpp
+//  450
+//
+//  Created by KAIBALYA SAHOO on 20/03/2021.
+//
+
+#include <iostream>
+using namespace std;
+struct Node
+{
+    int data;//to store the data in node
+    struct Node *next;//to stor the adress of next node
+    
+} *top=NULL;
+
+class stack
+{
+private:
+    Node *top;
+public:
+    stack()
+    {
+        top=NULL;//constructor
+    }
+    void push(int x);
+    int pop();
+    void Display();
+    
+    
+};
+void stack::push(int x)
+{
+    Node *t=new Node;
+    if(t==NULL)
+    {
+        cout<<"stack is full"<<endl;
+    }
+    else
+    {
+        t->data=x;
+        t->next=top;
+        top=t;
+    }
+}
+int stack::pop()
+{
+    int x=-1;
+    if(top==NULL)
+    {
+        cout<<"stack is empty"<<endl;
+    }
+    else
+    {
+        x=top->data;
+        Node *t=top;
+        top=top->next;
+        delete t;
+    }
+    
+    return x;
+    
+}
+
+void stack::Display()
+{
+    Node *p=top;
+    while(p!=NULL)
+    {
+        cout<<p->data<<endl;
+        p=p->next;
+    }
+    
+    cout<<endl;
+}
+
+
+
+
+
+int main()
+{
+    stack stk;
+    stk.push(10);
+    stk.push(20);
+    stk.push(30);
+    stk.push(40);
+    stk.push(50);
+    stk.Display();
+    cout<<endl;
+    cout<<stk.pop();
+    cout<<endl;
+        cout<<endl;
+    stk.Display();
+}
