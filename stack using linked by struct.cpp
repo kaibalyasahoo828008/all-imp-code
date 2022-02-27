@@ -35,7 +35,7 @@ void pop()//for deleting the value
 {
     int x=-1;
    struct  Node *t;
-    if(top->next==NULL)
+    if(top==NULL)
     {
         cout<<"stack is full"<<endl;
     }
