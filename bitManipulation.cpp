@@ -85,7 +85,49 @@ void ClearBitsInrRange(int &n,int i,int j)
     n=n&(~(mas2^mask1));
 }
 
+int CheckThePowerOfTwo( int &n)
+{
+    return (n&(n-1));
+    
+}
 
+
+int countBits(int &n)
+{
+    int count=0;
+    while(n>0)
+    {
+    int last_bits=(n&1);
+        count=count+last_bits;
+    n=n>>1;
+    }
+    return count;
+}
+
+int countBits_hack(int &n)
+{
+    int couent=0;
+    while(n>0)
+    {
+        n=n&(n-1);
+        couent++;
+    }
+    return couent++;
+}
+
+
+int Number_TO_Binary(int num)
+{
+    int ans=0;
+    while(num>0)
+    {
+        ans=10*ans+getIthBit(num, 0);
+        num=num>>1;
+        
+    }
+    return ans;
+    
+}
 
 
 
@@ -94,13 +136,14 @@ void ClearBitsInrRange(int &n,int i,int j)
 
 int main()
 {
-    int num;
+    /*int num;
     cin>>num;
    
     for(int i=5;i>=0;i--)
     {
     cout<<getIthBit(num,i);
     }
+     */
     /*int Which_index;
     cin>>Which_index;
     
@@ -131,6 +174,7 @@ int main()
     cin>>Which_index2;
     ClearLastIBits(num, Which_index2);
     */
+    /*
     int Which_index3,Which_index4;
     cin>>Which_index3;
     cin>>Which_index4;
@@ -141,6 +185,79 @@ int main()
     {
     cout<<getIthBit(num,i);
     }
+    */
+   
+    /*
+     You are given two 32-bit numbers,N and M,and Two  bit positions i and j.Write a  method to set all bits  between i and j in N equal to M .M(becomes a substring of N locationed at and starting at j)
+     
+   examples
+     N=10000000000;
+     M=10101
+     i=2,J=6;
+     output->1001010100
+     
+     
+     */
+   
+    /*
+    int n=1000000000;
+    int m=10101;
+    int i,j;
+    cin>>i>>j;
+    
+    ClearBitsInrRange(n, i, j);
+    m=m<<i;
+    n=n|m;
+    for(int i=5;i>=0;i--)
+    {
+    cout<<getIthBit(n,i);
+    }
+    */
+    
+    /* to check the number is power of 2 or not*/
+    
+   /* int num;
+    cin>>num;
+    
+    if(CheckThePowerOfTwo(num)==0)
+    {
+        cout<<"yes"<<endl;
+    }
+    else
+    {
+        cout<<"NO"<<endl;
+    }
+    */
+    
+    
+    /* COUNT THE NUMBER OF BITS    EG 9->1001
+                            OUTPUT      ->2
+                       we perform and operation if ans is one then we shif it
+                                    
+     
+     */
+    
+   /* int num;
+    cin>>num;
+    
+    //cout<<countBits(num)<<endl;
+    cout<<countBits_hack(num)<<endl;
+    
+    */
+    
+    /* MAKE THE NUMBER INTO A BINARY FORM*/
+    
+    int num;
+    cin>>num;
+    
+    cout<<Number_TO_Binary(num)<<endl;
+    
+    
+    
+    
+    
+    
+    
     
     return 0;
 }
