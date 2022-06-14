@@ -3,7 +3,7 @@
 //  Binary exponetial
 //
 //  Created by KAIBALYA SAHOO on 20/03/2021.
-//
+// o(logn) because b=b/2
 
 #include <iostream>
 #include<math.h>
